@@ -28,7 +28,7 @@ public class ApeContainer extends Fragment {
         	Ape ape = new Ape();
         	
         	myContext.getSupportFragmentManager().beginTransaction()
-            .add(R.id.movie_fragment_container, ape).commit();
+            .replace(R.id.movie_fragment_container, ape).commit();
         }
         return rootView;
     }

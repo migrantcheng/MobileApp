@@ -106,7 +106,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
 		toastText("tab " + String.valueOf(tab.getPosition()) + " clicked");
 		switch (tab.getPosition()) {
-		case 0: ft.replace(R.id.fragment_container, movieContainer); break;
+		case 0: ft.replace(R.id.fragment_container, new MovieContainer()); break;
 		case 1: ft.replace(R.id.fragment_container, likedContainer); break;
 		case 2: ft.replace(R.id.fragment_container, messageContainer); break;
 		}
@@ -115,11 +115,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-		switch (tab.getPosition()) {
-		case 0: ft.remove(movieContainer); break;
-		case 1: ft.remove(likedContainer); break;
-		case 2: ft.remove(messageContainer); break;
-		}
+//		switch (tab.getPosition()) {
+//		case 0: ft.remove(movieContainer); break;
+//		case 1: ft.remove(likedContainer); break;
+//		case 2: ft.remove(messageContainer); break;
+//		}
 		
 	}
 	
