@@ -12,7 +12,7 @@ public class TopRatedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
  
-        View rootView = inflater.inflate(R.layout.fragment_top_rated, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_liked_info, container, false);
          
         return rootView;
     }

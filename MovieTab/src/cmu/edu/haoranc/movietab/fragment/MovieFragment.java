@@ -5,7 +5,7 @@ import cmu.edu.haoranc.movietab.R;
 import cmu.edu.haoranc.movietab.TabsPagerAdapter;
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -27,7 +27,7 @@ public class MovieFragment extends Fragment {
          
 
 		viewPager = (ViewPager) rootView.findViewById(R.id.pager);
-		mAdapter = new TabsPagerAdapter(myContext.getSupportFragmentManager());
+		mAdapter = new TabsPagerAdapter(getChildFragmentManager());
 
 		viewPager.setAdapter(mAdapter);
         return rootView;

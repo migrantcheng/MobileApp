@@ -3,17 +3,22 @@ package cmu.edu.haoranc.movietab.movie;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 import cmu.edu.haoranc.movietab.R;
+import cmu.edu.haoranc.movietab.TopRatedFragment;
 import cmu.edu.haoranc.movietab.fragment.LikedListAdapter;
 
 public class Lucy extends Fragment {
 	private ListView list;
 	private LikedListAdapter adapter;
-	private Activity context;
+	private FragmentActivity context;
 	
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,14 +32,14 @@ public class Lucy extends Fragment {
         adapter = new LikedListAdapter(context, testArr);
         list.setAdapter(adapter);
         
+        
         return rootView;
     }
     
+
     @Override
     public void onAttach(Activity activity) {
-        context = activity;
+        context=(FragmentActivity) activity;
         super.onAttach(activity);
     }
-
-
 }

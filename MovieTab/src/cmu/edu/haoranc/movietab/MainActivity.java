@@ -1,8 +1,10 @@
 package cmu.edu.haoranc.movietab;
 
-import cmu.edu.haoranc.movietab.fragment.LikedFragment;
-import cmu.edu.haoranc.movietab.fragment.MessageFragment;
+
 import cmu.edu.haoranc.movietab.fragment.MovieFragment;
+import cmu.edu.haoranc.movietab.liked.LikedContainer;
+import cmu.edu.haoranc.movietab.message.MessageContainer;
+import cmu.edu.haoranc.movietab.movie.MovieContainer;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
@@ -25,6 +27,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private android.app.Fragment movieFragment;
     private android.app.Fragment likedFragment;
     private android.app.Fragment messageFragment;
+    
+    private android.app.Fragment likedContainer;
+    private android.app.Fragment messageContainer;
+    private android.app.Fragment movieContainer;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +60,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         ActionBar.Tab likedTab = actionBar.newTab().setText(tabs[1]);
         ActionBar.Tab messageTab = actionBar.newTab().setText(tabs[2]);
         
-        movieFragment = new MovieFragment();
-        likedFragment = new LikedFragment();
-        messageFragment = new MessageFragment();
+        //movieFragment = new MovieFragment();
+        likedContainer = new LikedContainer();
+//        messageFragment = new MessageFragment();
+        messageContainer = new MessageContainer();
+        movieContainer = new MovieContainer();
         
         movieTab.setTabListener(this);
         likedTab.setTabListener(this);
@@ -88,8 +96,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	}
 
 	@Override
-	public void onTabReselected(Tab arg0, FragmentTransaction arg1) {
+	public void onTabReselected(Tab arg0, FragmentTransaction ft) {
 		// TODO Auto-generated method stub
+
 		
 	}
 
@@ -97,9 +106,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
 		toastText("tab " + String.valueOf(tab.getPosition()) + " clicked");
 		switch (tab.getPosition()) {
-		case 0: ft.replace(R.id.fragment_container, movieFragment); break;
-		case 1: ft.replace(R.id.fragment_container, likedFragment); break;
-		case 2: ft.replace(R.id.fragment_container, messageFragment); break;
+		case 0: ft.replace(R.id.fragment_container, movieContainer); break;
+		case 1: ft.replace(R.id.fragment_container, likedContainer); break;
+		case 2: ft.replace(R.id.fragment_container, messageContainer); break;
 		}
 		
 	}
@@ -107,9 +116,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 		switch (tab.getPosition()) {
-		case 0: ft.remove(movieFragment); break;
-		case 1: ft.remove(likedFragment); break;
-		case 2: ft.remove(messageFragment); break;
+		case 0: ft.remove(movieContainer); break;
+		case 1: ft.remove(likedContainer); break;
+		case 2: ft.remove(messageContainer); break;
 		}
 		
 	}
