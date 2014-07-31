@@ -4,7 +4,11 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
  
-    
+    <TextView
+        android:id="@+id/liked_info_likedid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
     
     <RelativeLayout 
     android:layout_width="fill_parent"
@@ -29,7 +33,7 @@
       
 
       <TextView
-          android:id="@+id/textView1"
+          android:id="@+id/liked_info_username"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
         android:layout_alignTop="@+id/thumbnail"
@@ -38,10 +42,10 @@
           android:textAppearance="?android:attr/textAppearanceMedium" />
 
       <TextView
-          android:id="@+id/textView2"
+          android:id="@+id/liked_info_sex"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textView1"
+        android:layout_below="@id/liked_info_username"
         android:textColor="#343434"
         android:layout_marginTop="1dip"
         android:layout_toRightOf="@+id/thumbnail"
@@ -59,11 +63,11 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Movie: "
+            android:text="Movie"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/liked_info_moviename"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lucy"
@@ -78,7 +82,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/liked_info_theater"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="AMC Waterfront"
@@ -92,7 +96,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/liked_info_showtime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="21:00 pm"
@@ -106,18 +110,19 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/liked_info_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello, I just love movie so much!"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <RelativeLayout
+            android:id="@+id/liked_info_buttonArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/liked_info_invite_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"

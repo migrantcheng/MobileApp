@@ -5,6 +5,7 @@ import cmu.edu.haoranc.movietab.fragment.MovieFragment;
 import cmu.edu.haoranc.movietab.liked.LikedContainer;
 import cmu.edu.haoranc.movietab.message.MessageContainer;
 import cmu.edu.haoranc.movietab.movie.MovieContainer;
+import cmu.edu.haoranc.movietab.util.ParseUtil;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
@@ -16,6 +17,9 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -36,6 +40,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		Parse.initialize(this, "YIaYJemYxLwGTeVLlwsRbwCkmcI55UrizZd8pHnB", "v56KVpFAMcuXsqBBlQM9nDPfdSwt6PgLuRY0NYl2");
 		
 			
 //	        actionBar = getActionBar();
@@ -73,6 +79,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         actionBar.addTab(movieTab);
         actionBar.addTab(likedTab);
         actionBar.addTab(messageTab);
+        
+        ParseUtil.logToParse("In MainActivity onCreate");
         
 	}
 

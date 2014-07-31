@@ -1,5 +1,9 @@
 package cmu.edu.haoranc.movietab.message;
 
+import java.util.List;
+
+import com.parse.ParseObject;
+
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,10 +16,10 @@ import cmu.edu.haoranc.movietab.R;
 public class MessageListAdapter extends BaseAdapter{
 	
 	private Activity activity;
-    private String[] data;
+    private List<ParseObject> data;
     private static LayoutInflater inflater=null;
     
-    public MessageListAdapter(Activity a, String[] d) {
+    public MessageListAdapter(Activity a, List<ParseObject> d) {
     	activity = a;
     	data = d;
     	inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -23,7 +27,7 @@ public class MessageListAdapter extends BaseAdapter{
 
 	@Override
 	public int getCount() {
-		return data.length;
+		return data.size();
 	}
 
 	@Override
@@ -41,11 +45,21 @@ public class MessageListAdapter extends BaseAdapter{
 		View vi=convertView;
         if(convertView==null)
             vi = inflater.inflate(R.layout.message_list_row, null);
+        
+        TextView username = (TextView)vi.findViewById(R.id.message_user); 
+        TextView showtime = (TextView)vi.findViewById(R.id.message_showtime); 
+        showtime.setText(data.get(position).getParseObject("likedlist").getString("showtime") 
+        		+ " - " + data.get(position).getParseObject("likedlist").getString("theater"));
+        TextView likedId = (TextView)vi.findViewById(R.id.message_id); 
+        likedId.setText(data.get(position).getObjectId());
+        System.out.println("In adpater " + likedId.getText());
+        ParseObject obj = data.get(position);
+        if (obj.getString("fromuser").equals("Haoran Cheng")) {
+        	username.setText("To " + obj.getString("touser"));
+        } else {
+        	username.setText("From " + obj.getString("fromuser"));
+        }
  
-        TextView title = (TextView)vi.findViewById(R.id.message_user); // title
-        
-        title.setText("From "+data[position]);
-        
         return vi;
 	}
 
