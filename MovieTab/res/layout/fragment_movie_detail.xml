@@ -8,15 +8,135 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="cmu.edu.haoranc.movietab.MainActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="76dp"
-        android:layout_marginTop="48dp"
-        android:text="Hello"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="false" >
+
+        <ImageView
+            android:id="@+id/movieImg"
+            android:layout_width="96dp"
+            android:layout_height="143dp"
+            android:src="@drawable/apehead" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/Director"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/Release"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/Genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/Synopsis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <ImageView
+                android:id="@+id/rating"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:src="@drawable/rating" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout1"
+        android:layout_alignRight="@+id/linearLayout1"
+        android:layout_below="@+id/linearLayout1" >
+
+        <Button
+            android:id="@+id/button1"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="refreshSTList"
+            android:text="Mon&#10;28" />
+
+        <Button
+            android:id="@+id/button2"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="refreshSTList"
+            android:text="Tue&#10;29" />
+
+        <Button
+            android:id="@+id/button3"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="refreshSTList"
+            android:text="Wed&#10;30" />
+
+        <Button
+            android:id="@+id/button4"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="refreshSTList"
+            android:text="Thu&#10;31" />
+
+        <Button
+            android:id="@+id/button5"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="refreshSTList"
+            android:text="Fri&#10;1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linearLayout2"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/STlistView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="#b5b5b5"
+            android:dividerHeight="1dp"
+            android:listSelector="@drawable/list_selector"
+            android:paddingTop="5dp" />
+    </LinearLayout>
 
 </RelativeLayout>
